@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,22 @@ namespace Exercise1
                     string db = Console.ReadLine();
                     Console.Write("\nKetik K untuk terhubung ke Database: ");
                     char chr = Convert.ToChar(Console.ReadLine());
+                    switch (chr)
+                    {
+                        case 'K':
+                            {
+                                SqlConnection conn = null;
+                                string strKoneksi = "data source = MUHDAVIN\\MUHDAVIN;" +
+                                    "initial catalog = {0}; " + "User ID {1}; password = {2}";
+                                conn = new SqlConnection(string.Format(strKoneksi, db, user, pass));
+                                conn.Open();
+                                Console.Clear();
+                                while (true)
+                                {
+
+                                }
+                            }
+                    }
                 }
             }
         }
