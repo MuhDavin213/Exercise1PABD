@@ -98,11 +98,28 @@ namespace Exercise1
                                     {
                                         Console.WriteLine("\nCheck for the value entered.");
                                     }
+                                    
                                 }
                             }
+                        default:
+                            {
+                                Console.WriteLine("\nInvalid Option");
+                            }
+                            break;
                     }
                 }
+                catch
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("Tidak dapat mengakses database dengan user tersebut");
+                    Console.ResetColor();
+                }
             }
+        }
+        public void buku(SqlConnection con)
+        {
+            SqlCommand cmd = new SqlCommand("Select * FROM HRD", con);
         }
     }
 }
