@@ -37,7 +37,67 @@ namespace Exercise1
                                 Console.Clear();
                                 while (true)
                                 {
+                                    try
+                                    {
+                                        Console.WriteLine("\nMenu");
+                                        Console.WriteLine("1. Melihat Seluruh Data");
+                                        Console.WriteLine("2. Tambah Data");
+                                        Console.WriteLine("3. Keluar");
+                                        Console.Write("\nEnter your choice (1-3):");
+                                        char ch = Convert.ToChar(Console.ReadLine());
+                                        switch (ch)
+                                        {
+                                            case '1':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("DATA TOKO");
+                                                    pr.Buku(conn);
+                                                    conn.Close();
+                                                }
+                                                break;
 
+                                            case '2':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("Masukkan NIM :");
+                                                    string NIM = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Nama Mahasiswa : ");
+                                                    string NamaMhs = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Alamat Mahasiswa : ");
+                                                    string Almt = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan Jenis Kelamin (L/P) : ");
+                                                    string jk = Console.ReadLine();
+                                                    Console.WriteLine("Masukkan No Telepon : ");
+                                                    string notlpn = Console.ReadLine();
+                                                    try
+                                                    {
+                                                        pr.insert(NIM, NamaMhs, Almt, jk, notlpn, conn);
+                                                        conn.Close();
+                                                    }
+                                                    catch
+                                                    {
+                                                        Console.WriteLine("\nAnda tidak memiliki " + "akses untuk menambah data");
+                                                    }
+
+                                                }
+                                                break;
+                                            case '3':
+                                                conn.Close();
+                                                return;
+                                            default:
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("\nInvalid Option");
+                                                }
+                                                break;
+                                                ;
+                                        }
+
+                                    }
+                                    catch
+                                    {
+                                        Console.WriteLine("\nCheck for the value entered.");
+                                    }
                                 }
                             }
                     }
